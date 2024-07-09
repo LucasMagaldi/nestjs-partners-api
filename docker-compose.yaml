@@ -1,0 +1,9 @@
+services:
+  db:
+      image: mysql
+      restart: always
+      environment:
+        MYSQL_DATABASE: nest
+        MYSQL_ROOT_PASSWORD: root
+      ports: 
+        - 33066:3306  
