@@ -1,1 +1,26 @@
 GET http://localhost:3000/events
+
+###
+# @name createEvent
+POST http://localhost:3000/events
+Content-Type: application/json
+
+{
+    "name": "New Event Test",
+    "date": "2017-01-01T00:00:00",
+    "price": 100,
+    "description": "This is a new event"
+}
+###
+@eventId = {{ createEvent.response.body.id }}
+
+###
+PATCH http://localhost:3000/events/{{ eventId }}
+Content-Type:: application/json
+
+{
+   "name": "New Event Test II",
+    "date": "2017-01-01T00:00:00",
+    "price": 100,
+    "description": "This is a new event" 
+}
