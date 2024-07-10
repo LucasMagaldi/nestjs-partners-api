@@ -24,3 +24,17 @@ Content-Type:: application/json
     "price": 100,
     "description": "This is a new event" 
 }
+
+
+### SPOTS
+
+POST http://localhost:3000/events/{{eventId}}/spots
+Content-Type: application/json
+
+{
+    "name": "A22",
+    "status": "available"
+}
+
+###
+GET http://localhost:3000/events/{{eventId}}/spots
