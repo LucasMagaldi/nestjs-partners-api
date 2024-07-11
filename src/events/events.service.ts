@@ -13,15 +13,15 @@ export class EventsService {
         ...createEventDto,
         date: new Date(createEventDto.date)
       } 
-    });
+    })
   }
 
   findAll() {
-    return this.prismaService.event.findMany();
+    return this.prismaService.event.findMany()
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} event`;
+    return `This action returns a #${id} event`
   }
 
   update(id: string, updateEventDto: UpdateEventDto) {
@@ -31,10 +31,16 @@ export class EventsService {
         ...updateEventDto, 
       },
       where: { id }
-    });
+    })
   }
 
   remove(id: number) {
-    return `This action removes a #${id} event`;
+    return `This action removes a #${id} event`
+  }
+
+  removeAll(){
+    const response = this. prismaService.event.deleteMany()
+    console.log(response)
+    return response
   }
 }
