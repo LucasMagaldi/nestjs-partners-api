@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@ne
 import { EventsService } from './events.service'
 import { CreateEventDto } from './dto/create-event.dto'
 import { UpdateEventDto } from './dto/update-event.dto'
+import { ReserveSpotDto } from './dto/reserve-spot.dto'
 
 @Controller('events')
 export class EventsController {
@@ -37,5 +38,10 @@ export class EventsController {
   @Delete('/all')
   removeAll() {
     return this.eventsService.removeAll()
+  }
+
+  @Post(':id/reserve')
+  reserveSpots(@Body() dto: ReserveSpotDto, @Param('id') eventId: string) {
+    return this.eventsService.reserveSpot({...dto, eventId})
   }
 }

@@ -41,3 +41,12 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/events/{{eventId}}/spots
+
+### reserve spots
+
+POST http://localhost:3000/events/{{eventId}}/reserve
+Content-Type: application/json
+
+{
+    
+}

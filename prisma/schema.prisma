@@ -46,25 +46,31 @@ enum TicketKind {
   half
 }
 
+enum TicketStatus {
+  available
+  reserved
+}
+
 model Ticket {
-  id         String     @id @default(uuid())
+  id         String       @id @default(uuid())
   email      String
   ticketKind TicketKind
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @default(now())
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now())
   spotId     String
-  Spot       Spot       @relation(fields: [spotId], references: [id])
+  Spot       Spot         @relation(fields: [spotId], references: [id])
+  status     TicketStatus
 
   @@unique([spotId])
 }
 
 model ReservetionHistory {
-  id         String     @id @default(uuid())
+  id         String       @id @default(uuid())
   email      String
   ticketKind TicketKind
-  status     SpotStatus
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @default(now())
+  status     TicketStatus
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now())
   spotId     String
-  Spot       Spot       @relation(fields: [spotId], references: [id])
+  Spot       Spot         @relation(fields: [spotId], references: [id])
 }
