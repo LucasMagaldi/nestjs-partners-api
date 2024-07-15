@@ -35,7 +35,7 @@ POST http://localhost:3000/events/{{eventId}}/spots
 Content-Type: application/json
 
 {
-    "name": "A22",
+    "name": "A5",
     "status": "available"
 }
 
@@ -48,5 +48,7 @@ POST http://localhost:3000/events/{{eventId}}/reserve
 Content-Type: application/json
 
 {
-    
+    "spots": ["A3", "A4"],
+    "ticket_kind": "half",
+    "email": "john.doe@gmail.com"
 }
